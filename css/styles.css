@@ -139,7 +139,7 @@ table.display {
 }
 .logo-box {
     height: 60px;
-    background: url('../img/js-logo.png') no-repeat right top;
+    background: url('../img/js-logo.png')no-repeat;
     color: #dc0614;
     text-shadow: 1px 1px 1px #1966a2;
 }
