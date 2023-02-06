@@ -66,28 +66,28 @@
             }
 
             // 2
-            function repeatingText(){
+            /*function repeatingText(){
                 for(var i=0; i < 50; i++){
                     document.write("Hoi maailma!<br>");
                 }
             }
-            repeatingText();
+            repeatingText(); */
 
             // 3 esim.
             if ( navigator.userAgent.indexOf("Edge") > -1 ){
-                //navigator.href="http://www.microsoft.com";
-            }
-            else{
-                //navigator.href="http://www.hs.fi"
-            }
-
-            // or
-            if (navigator.appname ="Mozilla"){
                 navigator.href="http://www.microsoft.com";
             }
             else{
                 navigator.href="http://www.hs.fi"
             }
+
+            // or
+            if (navigator.appname ="Mozilla"){
+                navigator.href="http://www.iltalehti.fi";
+            }
+            else{
+                navigator.href="http://www.hs.fi"
+            } 
             // 4
             if (confirm('Where to go?') == true){
                 console.log("You pressed ok");

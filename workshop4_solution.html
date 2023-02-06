@@ -28,6 +28,7 @@ color and the background color</li>
         <hr/>
 		<h2>Exercise 2: DOM Traversing using ID's and classes</h2>
 		<p class="surprise">Add onchange -events to following checkboxes.</p>
+        <div id="me2" class="logo-box" style="display:none" ></div>
 		<p>
             <label>
                 <input onchange="hideMe()" name="CheckboxGroup1" type="checkbox" id="CheckboxGroup1_0" title="Actions" value="1">
@@ -155,6 +156,11 @@ http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Render
 			</li>
 			<li dir="ltr">How would you replace the contents only on the ones with the word &lsquo;Select&rsquo; in them?</li>
 		</ul>
+        <p>
+		
+			<button onclick="replaceLiStrong();">Replace li's with strong</button>
+			<button onclick="replaceOnlySelect();">Replace li's Select</button>
+		</p>
         <script>
             <!-- JavaScript goes here -->
             <!-- Assignment 1 -->
@@ -169,7 +175,14 @@ http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Render
             function thirdButton(){
                 var ptags = document.getElementsByTagName('p');
                 var emtags = document.getElementsByTagName('em');
-                ptags[3].innerHTML += emtags[1].innerHTML;
+                var btext = emtags[0].innerHTML;
+                var atext = emtags[1].innerHTML;
+                btext = "<strong><em>"+btext + "</em></strong>";
+				atext = atext.italics();
+                atext = btext + atext;
+                ptags[3].innerHTML += atext;
+				document.getElementById('me2').style = "display: block";
+				document.body.style.background= "grey";
             }
             <!-- Assignment 2 -->
             function hideMe(){
@@ -265,6 +278,35 @@ http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Render
                 cell2.innerHTML = position;
                 cell3.innerHTML = salary;
             }
+            function replaceLiStrong(){
+				
+	
+				var liTable = document.getElementsByTagName('li');
+		
+				for(var i = 0; i < liTable.length; i++){
+					var text = "\"Replaced\" ";
+					text = text.fontcolor("red");
+					text = (text + liTable[i].innerHTML);
+					liTable[i].innerHTML = text;
+					liTable[i].style.fontWeight = 900;
+					
+				}
+			}
+			
+			function replaceOnlySelect(){
+				var liTable = document.getElementsByTagName('li');
+			
+				for(var i = 0; i < liTable.length; i++){
+				    if (liTable[i].innerHTML.search("Select") >= 0){
+					
+						var text = "\"Replaced\" ";
+						text = text.fontcolor("red");
+						text = (text + liTable[i].innerHTML);
+						liTable[i].innerHTML = text;
+						liTable[i].style.fontWeight = 900;
+					}
+				}
+			}
         </script>
     </body>
 </html>

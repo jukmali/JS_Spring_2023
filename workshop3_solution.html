@@ -90,6 +90,7 @@ over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
         <div onmousemove="showXY(event);" id="coordinates"></div>
         <p>Mouse over the rectangle above, and get the coordinates of your mouse pointer.</p>
         <p>When the mouse is moved over the div, use document.write to display the horizontal and vertical coordinates of your mouse pointer, whose values are returned from the X and Y properties on the MouseEvent object.</p>
+        <p id="table2"></p>
         <script>
             <!-- JavaScript goes here -->
             // This counter is used to keep in track of the keypresses
@@ -114,7 +115,7 @@ over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
             // Optional: use backticks
             function showTable2(){
                 var html = `
-                <table id="example" class="display" cellspacing="0" width="100%">
+                <table id="example" class="display" cellspacing="0" width="100%" border="1">
                    <thead>
                       <tr>
                          <th>Name</th>
@@ -141,7 +142,9 @@ over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
                    </tbody>
                 </table>
                 `;
-                document.write( html );
+                var placeTable = document.getElementById("table2");
+                placeTable.innerHTML=html;
+                // document.write( html );
             }
             // button 3
             function geoLocation() {
@@ -175,6 +178,8 @@ over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
                 counter++;
                 // Find an element with an id "counter" and place the variable there
                 document.getElementById('counter').innerHTML = counter;
+                var textbox1 = document.getElementById('textdata');
+                textbox1.style ="background:white";
             }
             function attention(){
                 // Find the element with an id "textbox" on the page
@@ -183,6 +188,7 @@ over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
                 textbox.value='Please fill in with proper data!'
                 // Change the background to red
                 textbox.style ="background: red";
+             
             }
             function validate(){
                 var textbox = document.getElementById('textdata');
@@ -191,6 +197,7 @@ over&nbsp;it. Output "Stepped over my a mouse!" on the console.</li>
                     alert("Field is empty!");
                     return false;
                 }
+                
             }
             function showXY(event){
                 var x = event.clientX;
